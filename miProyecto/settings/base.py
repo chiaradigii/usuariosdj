@@ -18,7 +18,7 @@ BASE_DIR = Path(__file__).ancestor(3)
 
 """Logic to hide file"""
 
-with open("secret.json") as f:
+with open("./secret.json") as f:
     secret = json.loads(f.read()) #reads and loads content of  secret file
 
 def get_secret(secret_name, secrets=secret):
@@ -41,13 +41,21 @@ DJANGO_APPS = (
     'django.contrib.staticfiles',
 )
 
-LOCAL_APPS = ()
+LOCAL_APPS = (
+        'applications.users',
+    )
 
-THIRD_PARTY_APPS = ()
+THIRD_PARTY_APPS = (
+    'ckeditor',
+    'crispy_bootstrap5',
+    'crispy_forms',
+)
 
 INSTALLED_APPS = DJANGO_APPS + LOCAL_APPS + THIRD_PARTY_APPS
 
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -99,6 +107,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+
+#constant to tell django i will work with other model of users
+AUTH_USER_MODEL='users.User'
+from django.apps import AppConfig
+
+AppConfig.default = False
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
