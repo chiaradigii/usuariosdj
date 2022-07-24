@@ -18,28 +18,20 @@
           </a> 
           <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
             <li>  <a class="dropdown-item" name="nuevoPartidoRedirect"  onClick="redirect()">Crear un partido</a>
-              <script type="text/javascript">
-                function redirect()
-                {
-                  window.location.href="{% url 'busqueda_app:NuevoPartido' %}";
-                }
-              </script></li>
+            
+            </li>
             <li>  <a class="dropdown-item" name="nuevoJugadorRedirect"  onClick="redirect()">Registrar un jugador</a>
-              <script type="text/javascript">
-                function redirect()
-                {
-                  window.location.href="{% url 'jugador_app:registrar_jugador' %}";
-                }
-              </script></li>  
+             
+            </li>  
             <li> <a class="dropdown-item" href="#acercaDeNosotros">Acerca de nosotros</a></li>
             {% if user.is_authenticated  %}
             <!-- permito al usuario cerrar sesion -->
             <!-- añado el parametro next para añadir un url next
             que contiene la dirección url de esta pagina para redireccionar  -->
-            <li> <a class="dropdown-item"  href="{% url 'logout' %}">Cerrar sesión</a></li>
+            <li> <a class="dropdown-item">Cerrar sesión</a></li>
             {% else %}
             <p>Inicia sesión para acceder</p>
-            <a href="{% url 'login' %}?next={{request.path}}">Iniciar sesión</a>
+            <a href="{% url 'users_app:login' %}?next={{request.path}}">Iniciar sesión</a>
             {% endif %}
           </ul>
         </li>
@@ -54,15 +46,15 @@
       <li class="nav-item col-xs-6 ">
         
         <!-- <button class="btn btn-dark  my-2 my-sm-0 " type="submit">Jugadores</button> -->
-        <a class="btn  rounded mx-1 btn-secondary" href="{% url 'jugador_app:jugadores_disponibles' %}">Jugadores</a>
+        <a class="btn  rounded mx-1 btn-secondary" href="">Jugadores</a>
 
       </li> 
       
       <li class="nav-item">
-        <a class="btn mx-1 btn-secondary" href="{% url 'busqueda_app:busquedas' %}">Partidos</a>
+        <a class="btn mx-1 btn-secondary" href="">Partidos</a>
       </li>
       <li class="nav-item">
-        <a class="btn mx-1 btn-secondary" href="{% url 'jugador_app:pagina_principal' %}">Inicio</a>
+        <a class="btn mx-1 btn-secondary" href="{% url 'home_app:index' %}">Inicio</a>
 
       </li>
        <!--FIN BOTONES-->

@@ -24,7 +24,7 @@ class User(AbstractBaseUser,PermissionsMixin):
     apellido=models.CharField(max_length=30)
     genero=models.CharField(max_length=1,choices=GENDER_CHOICES,blank=True)
     
-    REQUIRED_FIELDS = ['email','nombre','apellido']
+    REQUIRED_FIELDS = ['username','email','nombre','apellido']
     is_staff = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'username'

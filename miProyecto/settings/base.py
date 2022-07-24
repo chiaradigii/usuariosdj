@@ -31,6 +31,7 @@ def get_secret(secret_name, secrets=secret):
 SECRET_KEY = get_secret('SECRET_KEY')
 
 
+# AUTHENTICATION_BACKENDS = ('django.contrib.auth.backends.ModelBackend',)
 
 DJANGO_APPS = (
     'django.contrib.admin',
